@@ -1,0 +1,90 @@
+.flow {
+  padding: 80px 20px;
+  background-color: #ffffff;
+}
+
+.flow-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flow-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #1a1a1a;
+}
+
+.flow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.flow-step {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.flow-step-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.flow-step-content {
+  flex: 1;
+}
+
+.flow-step-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+}
+
+.flow-step-description {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.flow-arrow {
+  position: absolute;
+  right: -20px;
+  top: 30px;
+  font-size: 2rem;
+  color: #cbd5e1;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .flow-steps {
+    flex-wrap: nowrap;
+  }
+  
+  .flow-arrow {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .flow-step {
+    width: 100%;
+  }
+}

@@ -1,0 +1,25 @@
+.footer {
+  background-color: #1a1a1a;
+  color: #e5e7eb;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-description {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  color: #d1d5db;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
