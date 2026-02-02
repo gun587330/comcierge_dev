@@ -1,25 +1,32 @@
 .contact {
-  min-height: 100vh;
-  padding: 100px var(--spacing-lg) 0px var(--spacing-lg);
+  height: 100vh;
+  padding: 60px var(--spacing-lg) 40px;
   background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 50%, #e0f2fe 100%);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .contact-container {
   max-width: 800px;
   margin: 0 auto;
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
 }
 
 .contact-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: var(--spacing-md);
+  margin-top: 60px;
+  margin-bottom: 30px;
+
   color: var(--text-primary);
   position: relative;
   display: inline-block;
@@ -39,16 +46,16 @@
 }
 
 .contact-subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   text-align: center;
-  margin-bottom: 10px;
-  line-height: 1.8;
+  margin-bottom: 15px;
+  line-height: 1.6;
 }
 
 .contact-form {
   background: var(--color-light);
-  padding: var(--spacing-2xl);
+  padding: var(--spacing-lg);
   border-radius: var(--radius-lg);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -57,8 +64,8 @@
 .contact-form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
 }
 
 .contact-form-group {
@@ -67,19 +74,19 @@
 }
 
 .contact-form-group label {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
 }
 
 .contact-form-group input,
 .contact-form-group textarea {
   width: 100%;
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--radius-md);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-family: inherit;
   color: var(--text-primary);
   background: var(--color-light);
@@ -95,7 +102,7 @@
 
 .contact-form-group textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 80px;
 }
 
 .contact-submit {
@@ -103,14 +110,14 @@
   background: linear-gradient(135deg, var(--color-info) 0%, #5856d6 100%);
   color: var(--text-on-info);
   border: none;
-  padding: var(--spacing-md) var(--spacing-xl);
-  font-size: 1rem;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: 0.9rem;
   font-weight: 600;
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-md);
 }
 
 .contact-submit:hover {
@@ -130,16 +137,17 @@
 
 .contact-copyright {
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
-  margin-top: var(--spacing-2xl);
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-sm);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
   .contact {
+    height: 100vh;
     padding: 60px var(--spacing-lg) 40px;
-    min-height: 100vh;
   }
 
   .contact-title {
