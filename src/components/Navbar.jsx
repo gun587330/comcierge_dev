@@ -46,7 +46,7 @@ function Navbar({ onDemoClick }) {
             소개서 다운
           </button>
           <button className="navbar-cta" onClick={onDemoClick}>
-            대시보드 Demo
+            대시보드 Demo ➡
           </button>
         </div>
       </div>
