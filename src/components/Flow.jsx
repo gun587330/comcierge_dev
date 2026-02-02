@@ -26,9 +26,16 @@ function Flow() {
   ]
 
   return (
-    <section className="flow">
+    <section id="service-intro" className="flow">
       <div className="flow-container">
         <h2 className="flow-title">서비스 프로세스</h2>
+        <div className="flow-diagram">
+          <img 
+            src="/images/section.png" 
+            alt="Comcierger 서비스 시스템 다이어그램" 
+            className="flow-diagram-image"
+          />
+        </div>
         <div className="flow-steps">
           {steps.map((step, index) => (
             <div key={step.number} className="flow-step">

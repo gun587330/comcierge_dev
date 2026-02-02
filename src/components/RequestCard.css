@@ -1,38 +1,38 @@
 .request-card {
-  background-color: white;
-  border-radius: 8px;
-  padding: 32px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-light);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-sm);
   cursor: pointer;
   transition: all 0.2s ease;
   border: 1px solid #e2e8f0;
 }
 
 .request-card:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
-  border-color: #2563eb;
+  border-color: var(--color-info);
 }
 
 .request-card-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 16px;
-  gap: 12px;
+  margin-bottom: var(--spacing-lg);
+  gap: var(--spacing-md);
 }
 
 .request-card-title {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
   flex: 1;
   line-height: 1.4;
 }
 
 .request-card-status {
-  padding: 6px 16px;
-  border-radius: 6px;
+  padding: 6px var(--spacing-lg);
+  border-radius: var(--radius-md);
   font-size: 1rem;
   font-weight: 700;
   white-space: nowrap;
@@ -57,14 +57,14 @@
 .request-card-info {
   display: flex;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: var(--spacing-lg);
   font-size: 1.1rem;
   color: #64748b;
 }
 
 .request-card-employee {
   font-weight: 700;
-  color: #2563eb;
+  color: var(--color-info);
 }
 
 .request-card-department {

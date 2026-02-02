@@ -1,54 +1,163 @@
 .hero {
-  min-height: 70vh;
+  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
-  padding: 80px 20px;
+  background: 
+    linear-gradient(135deg, rgba(245, 247, 250, 0.7) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(239, 246, 255, 0.7) 100%),
+    url('/images/hero-background.png');
+  background-size: cover;
+  background-position: center 60px; /* navbar 높이만큼 아래에서 시작 */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 120px var(--spacing-lg) 80px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 60px; /* navbar 높이만큼 여유 공간 */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 20s ease-in-out infinite;
+  z-index: 1;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(88, 86, 214, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 25s ease-in-out infinite reverse;
+  z-index: 1;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(30px, -30px) rotate(180deg);
+  }
 }
 
 .hero-container {
   max-width: 900px;
   text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 24px;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xl);
   line-height: 1.3;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .hero-subtitle {
   font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 40px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
   line-height: 1.8;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .hero-cta {
-  background-color: #2563eb;
-  color: white;
+  background: linear-gradient(135deg, var(--color-info) 0%, #5856d6 100%);
+  color: var(--text-on-info);
   border: none;
-  padding: 16px 40px;
+  padding: var(--spacing-lg) 48px;
   font-size: 1.1rem;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(52, 152, 219, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.hero-cta:hover::before {
+  left: 100%;
 }
 
 .hero-cta:hover {
-  background-color: #1d4ed8;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.hero-cta:active {
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 100px var(--spacing-lg) 60px;
+    min-height: 100vh;
+    height: 100vh;
+    margin-top: 50px; /* 모바일 navbar 높이 */
+    background-position: center 50px; /* 모바일 navbar 높이만큼 아래에서 시작 */
+    background-attachment: scroll; /* 모바일에서는 fixed 제거 */
+  }
+
+  .hero::before,
+  .hero::after {
+    width: 300px;
+    height: 300px;
+  }
+
   .hero-title {
     font-size: 1.8rem;
   }
   
   .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-cta {
+    padding: var(--spacing-md) var(--spacing-xl);
     font-size: 1rem;
   }
 }

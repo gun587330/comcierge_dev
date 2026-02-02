@@ -3,7 +3,7 @@ import RequestCard from './RequestCard'
 import { dummyRequests } from '../data/dummyData'
 import './Dashboard.css'
 
-function Dashboard({ onBackClick }) {
+function Dashboard({ onBackClick, showToast }) {
   const [selectedRequest, setSelectedRequest] = useState(null)
   const [filter, setFilter] = useState('전체')
 
@@ -21,7 +21,7 @@ function Dashboard({ onBackClick }) {
       // 숫자(날짜, 비용 등) 강조
       let processedLine = line.split(/(\d+[월일일시만원원]?)/g).map((part, partIndex) => {
         if (/^\d+/.test(part) || part.includes('만원') || part.includes('원')) {
-          return <strong key={partIndex} style={{ color: '#2563eb', fontWeight: '700' }}>{part}</strong>
+          return <strong key={partIndex} style={{ color: 'var(--color-info)', fontWeight: '700' }}>{part}</strong>
         }
         return part
       })
@@ -33,7 +33,7 @@ function Dashboard({ onBackClick }) {
           const parts = part.split(placePattern)
           return parts.map((p, i) => {
             if (placePattern.test(p)) {
-              return <strong key={`${partIndex}-${i}`} style={{ color: '#059669', fontWeight: '700' }}>{p}</strong>
+              return <strong key={`${partIndex}-${i}`} style={{ color: 'var(--color-success)', fontWeight: '700' }}>{p}</strong>
             }
             return p
           })
@@ -48,7 +48,7 @@ function Dashboard({ onBackClick }) {
           const parts = part.split(actionPattern)
           return parts.map((p, i) => {
             if (actionPattern.test(p)) {
-              return <strong key={`action-${partIndex}-${i}`} style={{ color: '#dc2626', fontWeight: '700' }}>{p}</strong>
+              return <strong key={`action-${partIndex}-${i}`} style={{ color: 'var(--color-error)', fontWeight: '700' }}>{p}</strong>
             }
             return p
           })
@@ -75,10 +75,32 @@ function Dashboard({ onBackClick }) {
 
   const handleRequestClick = (request) => {
     setSelectedRequest(request)
+    if (showToast) {
+      showToast(`${request.title} 상세 정보를 열었습니다`, { 
+        type: 'info', 
+        duration: 2000 
+      })
+    }
   }
 
   const handleCloseDetail = () => {
     setSelectedRequest(null)
+  }
+
+  const handleFilterChange = (newFilter) => {
+    setFilter(newFilter)
+    if (showToast) {
+      const filterMessages = {
+        '전체': '전체 요청을 표시합니다',
+        '요청됨': '요청된 항목만 표시합니다',
+        '처리중': '처리 중인 항목만 표시합니다',
+        '완료': '완료된 항목만 표시합니다'
+      }
+      showToast(filterMessages[newFilter] || '필터가 변경되었습니다', { 
+        type: 'success', 
+        duration: 2000 
+      })
+    }
   }
 
   return (
@@ -96,7 +118,7 @@ function Dashboard({ onBackClick }) {
             <button
               key={status}
               className={`dashboard-filter ${filter === status ? 'active' : ''}`}
-              onClick={() => setFilter(status)}
+              onClick={() => handleFilterChange(status)}
             >
               {status}
             </button>
@@ -138,7 +160,7 @@ function Dashboard({ onBackClick }) {
             {selectedRequest.completedAt && (
               <div className="dashboard-detail-info">
                 <span className="dashboard-detail-label">완료일:</span>
-                <span style={{ fontWeight: '600', color: '#059669' }}>{selectedRequest.completedAt}</span>
+                <span style={{ fontWeight: '600', color: 'var(--color-success)' }}>{selectedRequest.completedAt}</span>
               </div>
             )}
             <div className="dashboard-detail-section">

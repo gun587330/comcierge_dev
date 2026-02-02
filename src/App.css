@@ -1,4 +1,25 @@
 .app {
   min-height: 100vh;
   background-color: #ffffff;
+  position: relative;
+}
+
+/* 스크롤 스냅 설정 */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+}
+
+/* 모든 섹션 스크롤 스냅 적용 */
+.hero,
+.flow,
+.value,
+.contact,
+.footer {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }

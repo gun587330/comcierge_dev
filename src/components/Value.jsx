@@ -29,7 +29,7 @@ function Value() {
   ]
 
   return (
-    <section className="value">
+    <section id="core-value" className="value">
       <div className="value-container">
         <h2 className="value-title">핵심 가치</h2>
         
